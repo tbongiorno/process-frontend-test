@@ -1,7 +1,17 @@
 import { useState } from "react";
-import { TextInput, Button, View, StyleSheet } from "react-native";
+import { Text, TextInput, Button, View, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 ("😊 😐 🥱 😞 😠");
+
+type EmojiProps = {
+  name: string;
+};
+
+const Emoji = (prop: EmojiProps) => {
+  return (
+    <Button onPress={() => console.log(prop.name)} title={prop.name}></Button>
+  );
+};
 
 function Journal() {
   const [text, onChangeText] = useState("");
@@ -17,11 +27,11 @@ function Journal() {
         value={text}
       ></TextInput>
       <View style={styles.container}>
-        <Button onPress={() => console.log("😊")} title="😊"></Button>
-        <Button onPress={() => console.log("😐")} title="😐"></Button>
-        <Button onPress={() => console.log("🥱")} title="🥱"></Button>
-        <Button onPress={() => console.log("😞")} title="😞"></Button>
-        <Button onPress={() => console.log("😠")} title="😠"></Button>
+        <Emoji name="😊" />
+        <Emoji name="😐" />
+        <Emoji name="🥱" />
+        <Emoji name="😞" />
+        <Emoji name="😠" />
       </View>
       <Button
         onPress={() => console.log(text)}
